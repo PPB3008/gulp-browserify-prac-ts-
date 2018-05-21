@@ -1,0 +1,10 @@
+{
+    "files":[
+        "src/ts/index.ts",
+        "src/ts/show.ts"
+    ],
+    "compilerOptions":{
+        "noImplicitAny": true,
+        "target": "es5"
+    }
+}
