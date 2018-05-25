@@ -6,14 +6,12 @@ var source = require("vinyl-source-stream");
 var tsify = require("tsify");
 var gulputil = require("gulp-util");
 var wathcify = require("watchify");
+var liveReload = require("gulp-livereload");
 var paths = {
     "pages": ['*.html']
 }
 
-gulp.task("copy-html",function (){
-    return gulp.src(paths.pages)
-        .pipe(gulp.dest("public"));
-})
+
 
 var watched = wathcify(browserify({
     basedir: ".",
@@ -26,11 +24,28 @@ var watched = wathcify(browserify({
 function setbundle() {
    return watched.bundle()
     .pipe(source('bundle.js'))
-    .pipe(gulp.dest('public/js'));
+    .pipe(gulp.dest('public/js'))
+    .pipe(liveReload());
 }
 
-gulp.task("default",["copy-html","styles:watch"],setbundle);
+
 watched.on("update",setbundle);
+
+gulp.task("copy-html",function (){
+    return gulp.src(paths.pages)
+        .pipe(gulp.dest("public"));
+})
+
+gulp.task('styles',function(){
+    return gulp.src('src/sass/custom.scss')
+        .pipe(sass({outputStyle: 'expanded'}).on('error',sass.logError))
+        .pipe(gulp.dest("public/style"))
+})
+
+
+
+
+
 // watched.on("log",gutil.log);
 // var sass = require("gulp-sass");
 // var tspr = ts.createProject("tsconfig.json");
@@ -42,12 +57,24 @@ watched.on("update",setbundle);
 
 
 
-gulp.task('styles',function(){
-    return gulp.src('src/sass/custom.scss')
-        .pipe(sass({outputStyle: 'expanded'}).on('error',sass.logError))
-        .pipe(gulp.dest("public/style"));
-})
-
 gulp.task('styles:watch',function (){
     gulp.watch('src/sass/*.scss',["styles"]);
 });
+
+gulp.task('html:watch',function (){
+    gulp.watch('index.html',["copy-html"]);
+});
+
+gulp.task('gulp-livereload',function (){
+    liveReload.listen({
+        start: true
+    });
+    liveReload.server;
+    gulp.watch(['src/sass/*.*','public/index.html'],function(ele){
+        liveReload.changed('public/style/custom.css');
+        // liveReload.changed('public/js/bundle.js');
+    })
+});
+
+
+gulp.task("default",["html:watch","styles:watch","gulp-livereload"],setbundle);
