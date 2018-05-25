@@ -70,9 +70,9 @@ gulp.task('gulp-livereload',function (){
         start: true
     });
     liveReload.server;
-    gulp.watch(['src/sass/*.*','public/index.html'],function(ele){
-        liveReload.changed('public/style/custom.css');
-        // liveReload.changed('public/js/bundle.js');
+    gulp.watch(['src/**/*.*','public/index.html'],function(ele){
+        // liveReload.changed('public/css/custom.css');
+        liveReload.changed(ele.path);
     })
 });
 
