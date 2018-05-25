@@ -1,0 +1,75 @@
+@mixin media($query...) {
+	$mq: '';
+	@for $i from 1 through length($query) {
+		@if (map-has-key($breakpoints, nth($query, $i))) {
+			$mq: $mq + 'screen and ' + map-get($breakpoints, nth($query, $i));
+
+			@if ($i < length($query)) {
+				$mq: $mq + ', ';
+			}
+		} @else {
+			@warn('unknown breakpoint: ' + nth($query, $i));
+		}
+	}
+
+	@if ($mq != '') {
+		@media #{$mq} {
+			@content;
+		}
+	} @else {
+		@content;
+	}
+}
+@mixin clearfix() {
+	&:before,
+	&:after {
+		content: " ";
+		display: table;
+	}
+	&:after {
+		clear: both;
+	}
+}
+@mixin btn($btn-color, $btn-bg, $btn-bg-hover) {
+	display: inline-block;
+	padding: 0px 28px;
+	text-align: center;
+	line-height: 32px;
+	font-size: $brand-font-size-xlarge;
+	font-weight: 500;
+	color: $btn-color;
+	background-color: $btn-bg;
+	cursor: pointer;
+	text-transform: uppercase;
+	&:hover,
+	&:focus,
+	&:active {
+		color: $btn-color;
+		background-color: $btn-bg-hover;
+	}
+}
+@mixin btn-inverse($btn-font, $btn-font-hover, $btn-bg-hover) {
+	display: inline-block;
+	padding: 0px 28px;
+	text-align: center;
+	line-height: 32px;
+	font-size: 22px;
+	font-weight: 500;
+	color: $btn-font;
+	border: 2px solid $btn-font;
+	cursor: pointer;
+	text-transform: uppercase;
+	&:hover,
+	&:focus,
+	&:active {
+		color: $btn-font-hover;
+		border: 2px solid $btn-bg-hover;
+		background-color: $btn-bg-hover;
+	}
+}
+@mixin background-gradient ($top-color, $bottom-color, $top-height){
+	background: linear-gradient( $top-color, $top-color $top-height, $bottom-color $top-height, $bottom-color);  
+	background: -webkit-linear-gradient($top-color, $top-color $top-height, $bottom-color $top-height, $bottom-color);  
+	background: -moz-linear-gradient($top-color, $top-color $top-height, $bottom-color $top-height, $bottom-color);  
+	background: -o-linear-gradient($top-color, $top-color $top-height, $bottom-color $top-height, $bottom-color);  
+}

@@ -1,7 +1,7 @@
 {
   "name": "tspr",
   "version": "1.0.0",
-  "description": "",
+  "description": "gulp-browserify practice",
   "main": "gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -18,5 +18,13 @@
     "typescript": "^2.8.3",
     "vinyl-source-stream": "^2.0.0",
     "watchify": "^3.11.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PPB3008/gulp-browserify-prac-ts-.git"
+  },
+  "bugs": {
+    "url": "https://github.com/PPB3008/gulp-browserify-prac-ts-/issues"
+  },
+  "homepage": "https://github.com/PPB3008/gulp-browserify-prac-ts-#readme"
 }

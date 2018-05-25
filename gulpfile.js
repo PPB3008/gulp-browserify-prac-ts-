@@ -43,8 +43,8 @@ watched.on("update",setbundle);
 
 
 gulp.task('styles',function(){
-    return gulp.src('src/sass/*.scss')
-        .pipe(sass({outputStyle: 'compressed'}).on('error',sass.logError))
+    return gulp.src('src/sass/custom.scss')
+        .pipe(sass({outputStyle: 'expanded'}).on('error',sass.logError))
         .pipe(gulp.dest("public/style"));
 })
 
