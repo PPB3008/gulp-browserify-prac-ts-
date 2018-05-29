@@ -67,9 +67,11 @@ gulp.task('html:watch',function (){
 
 gulp.task('gulp-livereload',function (){
     liveReload.listen({
+        // hostname: 'localhost',
+        // port: 8083,
         start: true
     });
-    gulp.watch(['public/**/*.*','public/index.html'],function(ele){
+    gulp.watch(['public/**/*.*'],function(ele){
         liveReload.changed(ele.path);
     })
 });
