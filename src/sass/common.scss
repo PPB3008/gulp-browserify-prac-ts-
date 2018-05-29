@@ -35,3 +35,17 @@ a {
     margin: auto;
     width: 80%;
 }
+
+.main-page {
+    .main-content-left,
+    .main-content-right {
+        float: left;
+    }
+    .main-content-left {
+        width: 30%;
+        margin-right: 10%;
+    }
+    .main-content-right { 
+        width: 60%;
+    }
+}

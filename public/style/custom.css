@@ -34,6 +34,20 @@ a:hover, a:visited, a:active, a:focus {
   width: 80%;
 }
 
+.main-page .main-content-left,
+.main-page .main-content-right {
+  float: left;
+}
+
+.main-page .main-content-left {
+  width: 30%;
+  margin-right: 10%;
+}
+
+.main-page .main-content-right {
+  width: 60%;
+}
+
 .header {
   position: sticky;
   top: 0;
@@ -72,4 +86,25 @@ a:hover, a:visited, a:active, a:focus {
 
 .header .header-nav .nav-option-item a:nth-last-child() {
   border-right: 1px solid grey;
+}
+
+.main-slider {
+  height: 500px;
+  width: 100%;
+  background-color: #000;
+}
+
+.main-content:before, .main-content:after {
+  content: " ";
+  display: table;
+}
+
+.main-content:after {
+  clear: both;
+}
+
+.user-info {
+  background-color: grey;
+  padding: 15px;
+  width: auto;
 }
