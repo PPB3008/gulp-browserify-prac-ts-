@@ -1,0 +1,18 @@
+//tags
+.tag {
+    h3 {
+        padding: 15px;
+    }
+    .tag-content {
+        padding: 15px;
+        min-height: 100px;
+        .tag-items {
+            display: inline-block;
+            line-height: 1.7;
+            border: 1px solid gray;
+            border-radius: 5px;
+            padding-left: 10px; 
+            padding-right: 10px;
+        }
+    }
+}

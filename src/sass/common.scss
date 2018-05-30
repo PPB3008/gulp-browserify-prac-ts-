@@ -12,6 +12,7 @@ h4,
 h5, 
 h6 {
     margin: 0;
+    font-family: "微软雅黑",sans-serif; 
 }
 
 ul,
@@ -20,6 +21,12 @@ li {
     margin: 0;
     padding: 0;
 }
+a,
+span,
+p {
+    font-family: "微软雅黑",sans-serif; 
+}
+
 
 a {
     text-decoration: none;
@@ -28,11 +35,11 @@ a {
     &:active,
     &:focus, {
         text-decoration: none;
+        color: inherit;
     }
 }
 
 //inner-wrapper
-
 .inner-wrapper {
     margin: auto;
     width: 80%;
@@ -41,6 +48,7 @@ a {
 
 //main-page-content  layout
 .main-page {
+    background-color: rgb(244, 248, 251);
     .main-content-left,
     .main-content-right {
         float: left;
