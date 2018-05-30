@@ -40,51 +40,53 @@ a:hover, a:visited, a:active, a:focus {
 }
 
 .main-page .main-content-left {
-  width: 30%;
-  margin-right: 10%;
+  position: sticky;
+  width: 32.5%;
+  margin-right: 5%;
 }
 
 .main-page .main-content-right {
-  width: 60%;
+  width: 62.5%;
 }
 
-.header {
+header {
   position: sticky;
   top: 0;
   background-color: #fff;
   box-shadow: 0px 1px 13px -3px #000;
+  z-index: 2;
 }
 
-.header .header-nav:before, .header .header-nav:after {
+header .header-nav:before, header .header-nav:after {
   content: " ";
   display: table;
 }
 
-.header .header-nav:after {
+header .header-nav:after {
   clear: both;
 }
 
-.header .header-nav h2 {
+header .header-nav h2 {
   line-height: 2.3;
   float: left;
 }
 
-.header .header-nav ul {
+header .header-nav ul {
   float: right;
 }
 
-.header .header-nav .nav-option-item {
+header .header-nav .nav-option-item {
   display: inline-block;
 }
 
-.header .header-nav .nav-option-item a {
+header .header-nav .nav-option-item a {
   display: inline-block;
   line-height: 3.5;
   padding: 0 30px;
   border-left: 1px solid grey;
 }
 
-.header .header-nav .nav-option-item a:nth-last-child() {
+header .header-nav .nav-option-item a:nth-last-child() {
   border-right: 1px solid grey;
 }
 
@@ -92,6 +94,11 @@ a:hover, a:visited, a:active, a:focus {
   height: 500px;
   width: 100%;
   background-color: #000;
+  margin-bottom: 20px;
+}
+
+.main-content {
+  margin-bottom: 15px;
 }
 
 .main-content:before, .main-content:after {
@@ -107,4 +114,29 @@ a:hover, a:visited, a:active, a:focus {
   background-color: grey;
   padding: 15px;
   width: auto;
+}
+
+.article-list {
+  width: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+  background-color: #fff;
+}
+
+.article-list-item {
+  min-height: 80px;
+  width: auto;
+  background-color: gray;
+  margin-bottom: 15px;
+}
+
+.contact-us {
+  background-color: #ccc;
+  min-height: 200px;
+  width: auto;
+}
+
+footer {
+  background-color: #000;
+  min-height: 200px;
 }

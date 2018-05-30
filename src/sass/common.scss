@@ -31,21 +31,26 @@ a {
     }
 }
 
+//inner-wrapper
+
 .inner-wrapper {
     margin: auto;
     width: 80%;
 }
 
+
+//main-page-content  layout
 .main-page {
     .main-content-left,
     .main-content-right {
         float: left;
     }
     .main-content-left {
-        width: 30%;
-        margin-right: 10%;
+        position: sticky;
+        width: 32.5%;
+        margin-right: 5%;
     }
     .main-content-right { 
-        width: 60%;
+        width: 62.5%;
     }
 }
