@@ -1,4 +1,4 @@
-export function show2 (label:any){
+export function show2 ():void{
     let r1 = new XMLHttpRequest();
     r1.open('GET',"http://localhost:3000/addUser",true);
     r1.send();
@@ -9,8 +9,8 @@ export function show2 (label:any){
         }else{
             console.log(r1.status);
         }
+        
     }
-    
 
     
     // let articleItem = document.createElement("a[]")s
@@ -20,15 +20,22 @@ export function show2 (label:any){
     // })
 } 
 
-function createArticle(articleOption:any) {
+interface domfunction {
+    
+}
+
+function createArticle(articleOption:any):void {
     const articleList = document.querySelector(".article-list");
-    articleOption.forEach((ele:any) => {
-        let item:any = document.createElement('a').setAttribute('class','article-list-item');
-        let itemWrapper:any = document.createElement('div').setAttribute('class','article-list-item-wrapper');
+    const test1:string = ""
+    articleOption.forEach((ele:{ID:number,title:string,article:string}):void => {
+        let item:HTMLAnchorElement = document.createElement('a');
+        item.setAttribute('class','article-list-item');
+        let itemWrapper:HTMLDivElement = document.createElement('div');
+        itemWrapper.setAttribute('class','article-list-item-wrapper');
         console.log(typeof itemWrapper)
         itemWrapper.innerHTML = `<h3>${ele.title}/h3><p>${ele.article}</p><div class='article-user'></div>`;
         item.appendChild(itemWrapper);
-        item.setAttribute('id',ele.ID);
+        item.setAttribute('id',ele.ID.toString());
         articleList.appendChild(item);
     })
 }
